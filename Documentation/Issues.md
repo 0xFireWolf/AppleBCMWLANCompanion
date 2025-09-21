@@ -14,6 +14,10 @@ AWDL is not currently available on Wi-Fi cards supported by BCMC. Unlike the leg
 
 Sharing the Internet to the Wi-Fi adapter *might* not be working properly.
 
+### Power Management
+
+Putting your computer to sleep or waking it up might trigger a kernel panic.
+
 ## \>\> Card Specific Issues
 
 This section describes issues specific to particular Wi-Fi cards.
