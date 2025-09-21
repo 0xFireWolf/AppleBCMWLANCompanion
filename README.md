@@ -44,7 +44,7 @@ Please refer to the [manual](Documentation/DeviceProperties.md) to see all devic
 
 ## Discussion
 
-A discussion thread is available on [InsanelyMac]().
+A discussion thread is available on [InsanelyMac](https://www.insanelymac.com/forum/topic/361710-broadcom-fullmac-wi-fi-support-on-macos-sonoma-sequoia-and-tahoe-without-root-patches/).
 
 ## Support
 
