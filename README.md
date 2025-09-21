@@ -16,10 +16,10 @@ Apple Broadcom Wi-Fi Companion (BCMC) is a macOS kernel extension designed for s
 
 - macOS Tahoe
     - 26.0 (25A354)
-- macOS Sequoia 
+- macOS Sequoia
     - 15.7 (24G222)
-- macOS Sonoma 
-    - 14.8 (23J21)
+- macOS Sonoma
+    - ~~14.8 (23J21)~~ (Not Verified Yet)
 
 *Other systems have not been tested. Old systems will not be supported due to the maintenance burden.*
 
@@ -51,5 +51,5 @@ A discussion thread is available on [InsanelyMac]().
 If you would like to support my work, please consider a donation via [Ko-Fi](https://ko-fi.com/0xFireWolf).
 
 ## License
-This project is licensed under BSD-3-Clause.
+This project is licensed under BSD-3-Clause.  
 Copyright (C) 2023-2025 FireWolf @ FireWolf Pl. All Rights Reserved.
