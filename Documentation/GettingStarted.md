@@ -12,7 +12,12 @@ Please make sure that your current macOS version is supported.
 
 ## Check Your System Integrity
 
-BCMC relies on Apple's new Broadcom Wi-Fi driver and 802.11 wireless networking stack, you must make sure that system frameworks and libraries related to those components remain uncontaminated. That said, if you have already applied Wi-Fi-related root patches via the OpenCore Legacy Patcher, you must revert them first. This includes removing related kexts and configurations from `config.plist`. Below is a list of kexts and configurations to check. Note that this list may not be complete, so please refer to the guide you used when applying the root patches.
+BCMC relies on Apple's new Broadcom Wi-Fi driver and 802.11 wireless networking stack, so you must make sure that system frameworks and libraries related to those components remain uncontaminated. Note that BCMC works without disabling *System Integrity Protection (SIP)* or *Apple's Mobile File Integrity (AMFI)*.
+
+<details>
+<summary>OpenCore Legacy Patcher Users</summary>
+
+If you have already applied Wi-Fi-related root patches via the OpenCore Legacy Patcher, you must revert them first. This includes removing related kexts and configurations from `config.plist`. Below is a list of kexts and configurations to check. Note that this list may not be complete, so please refer to the guide you used when applying the root patches.
 
 - Remove `AMFIPass.kext` that turns off Apple's Mobile File Integrity protection.
 - Remove `IOSkywalkFamily.kext` that downgrades the Skywalk networking stack.
@@ -21,6 +26,8 @@ BCMC relies on Apple's new Broadcom Wi-Fi driver and 802.11 wireless networking 
 - Enable the System Integrity Protection (SIP) by setting `csr-active-config` to `00000000`.
 
 You are **strongly** advised to make a clean installation and keep the *System Integrity Protection (SIP)* active before testing BCMC.
+
+</details>
 
 ## Enable IOMMUs and Activate AppleVTD
 
@@ -61,11 +68,11 @@ An **example** device path is `PciRoot(0x0)/Pci(0x1C,0x1)/Pci(0x0,0x0)`.
 
 You will need to update your bootloader configuration file `config.plist` by adding the following properties for your Wi-Fi card. For example, if you are using OpenCore, you can add the device properties under `DeviceProperties/Add/<DevicePath>`, where `<DevicePath>` is the path you obtained in the previous step.
 
-| Device Property Name | Type   | Value                                               | Required | Notes                                           |
-|----------------------|--------|-----------------------------------------------------|----------|-------------------------------------------------|
-| bcmc-firmware-path   | String | `/usr/local/share/firmware/wifi/<FirmwareName>.bin` | Yes      | `<FirmwareName>.bin` is the firmware file name. |
-| bcmc-firmware-hash   | Data   | The SHA-256 checksum of the firmware you are using  | Yes      | Refer to the previous step.                     |
-| bcmc-srom-slide      | Data   | `00000000` for BCM43602, `40000000` for BCM4350     | Yes*     | Required for BCM4350.                           |
+| Device Property Name | Type   | Value                                               | Required | Notes                                            |
+|----------------------|--------|-----------------------------------------------------|----------|--------------------------------------------------|
+| bcmc-firmware-path   | String | `/usr/local/share/firmware/wifi/<FirmwareName>.bin` | Yes      | `<FirmwareName>.bin` is the firmware file name.  |
+| bcmc-firmware-hash   | Data   | The SHA-256 checksum of the firmware you are using  | Yes      | Refer to the previous step.                      |
+| bcmc-srom-slide      | Data   | `00000000` for BCM43602, `40000000` for BCM4350     | Yes*     | Required for BCM4350. Not Required for BCM43602. |
 
 While the table above lists only the essential device properties for BCMC, additional properties are available to customize your Wi-Fi card's behavior (e.g., setting the country code). Please refer to the [manual](DeviceProperties.md) for the complete list of device properties.
 
@@ -119,6 +126,14 @@ You are **strongly** advised to add the `-v` to your boot arguments.
 
 You may now reboot your computer, and native Wi-Fi support should be ready. 
 
+You can verify that BCMC is loaded by running the following command in your Terminal:
+
+```bash
+kextstat | grep bcmc
+```
+
+You should be able to see the kext bundle identifier `science.firewolf.bcmc`.
+
 You can obtain the log by running the following command in your Terminal:
 
 ```bash
@@ -134,3 +149,7 @@ You should be able to see something similar to this:
 [    1.145731]: bcmc: void AppleBCMWLANCompanion::start() DInfo: Callback functions have been registered.
 [    2.035510]: bcmc: void AppleBCMWLANCompanion::processKernel(KernelPatcher &) DInfo: Processing the kernel with the patcher at 0xffffff801a60a890.
 ```
+
+## Issues and Discussions
+
+If you have any questions, feel free to join the discussion thread on [InsanelyMac](https://www.insanelymac.com/forum/topic/361710-broadcom-fullmac-wi-fi-support-on-macos-sonoma-sequoia-and-tahoe-without-root-patches/).

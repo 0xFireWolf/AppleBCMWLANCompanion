@@ -12,6 +12,10 @@ Apple Broadcom Wi-Fi Companion (BCMC) is a macOS kernel extension designed for s
 - **Driver Status:** Beta Testing - Not Recommended for Daily Use
 - **Limitations and Known Issues:** [Link](Documentation/Issues.md)
 
+## Discussion
+
+A discussion thread is available on [InsanelyMac](https://www.insanelymac.com/forum/topic/361710-broadcom-fullmac-wi-fi-support-on-macos-sonoma-sequoia-and-tahoe-without-root-patches/).
+
 ## Supported Systems
 
 - macOS Tahoe
@@ -41,10 +45,6 @@ Please refer to the [manual](Documentation/BootArguments.md) to see all boot arg
 ## Device Properties
 
 Please refer to the [manual](Documentation/DeviceProperties.md) to see all device properties. Under normal circumstances, you don't need to add any BCMC-specific device properties other than the ones mentioned in the Getting Started section.
-
-## Discussion
-
-A discussion thread is available on [InsanelyMac](https://www.insanelymac.com/forum/topic/361710-broadcom-fullmac-wi-fi-support-on-macos-sonoma-sequoia-and-tahoe-without-root-patches/).
 
 ## Support
 
