@@ -12,6 +12,7 @@ This section describes boot arguments related to the Lilu plugin in BCMC.
 
 ### TurnOffBCMC
 
+- **Available Since:** 1.0.0
 - **Name:** `-bcmcoff`
 - **Value Type:** `Boolean`
 - **Default Value:** `false`
@@ -19,6 +20,7 @@ This section describes boot arguments related to the Lilu plugin in BCMC.
 
 ### EnableDebug
 
+- **Available Since:** 1.0.0
 - **Name:** `-bcmcdbg`
 - **Value Type:** `Boolean`
 - **Default Value:** `false`
@@ -27,6 +29,7 @@ This section describes boot arguments related to the Lilu plugin in BCMC.
 
 ### EnableBeta
 
+- **Available Since:** 1.0.0
 - **Name:** `-bcmcbeta`
 - **Value Type:** `Boolean`
 - **Default Value:** `false`
@@ -39,6 +42,7 @@ This section describes boot arguments related to the chip configurator component
 
 ### ProbeChipOnly
 
+- **Available Since:** 1.0.0
 - **Name:** `-bcmcpbo`
 - **Value Type:** `Boolean`
 - **Default Value:** `false`
@@ -50,6 +54,7 @@ This section describes boot arguments related to changing the behavior of the na
 
 ### DisableCoreInit
 
+- **Available Since:** 1.0.0
 - **Name:** `-bcmcnocore`
 - **Value Type:** `Boolean`
 - **Default Value:** `false`
