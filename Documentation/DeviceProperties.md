@@ -22,6 +22,36 @@ This section describes device properties related to the Wi-Fi firmware. These pr
 - **Property Type:** `Data` in Plist (32 bytes)
 - **Value Type:** `UInt8[32]`
 
+## IOMMU and AppleVTD
+
+This section describes device properties related to the IOMMU and its driver `AppleVTD`. You might need to adjust these properties for your Wi-Fi chip if `AppleVTD` is incompatible with your platform or with other 3rd-party drivers you are using. Note that enabling these device properties comes at the cost of increased memory footprint and degraded network speed.
+
+### `bcmc-disable-io-mapper`
+
+- **Available Since:** 1.1.0
+- **Description:** Specify whether the use of IOMapper in the native Wi-Fi driver should be disabled
+- **Required:** Yes if you are experiencing issues with `AppleVTD`
+- **Property Type:** `Data` in Plist (4 bytes)
+- **Value Type:** `UInt32`
+- **Default Value:** `0x00` if the device property is not specified
+- **Possible Values:**
+  - `0x00` (`00000000` in Plist) to enable the use of IOMapper in the native Wi-Fi driver
+    - In this case, you must enable VT-d in your BIOS and ensure that `AppleVTD` is loaded.
+      Failing to do so will prevent the driver from loading.
+  - `0x01` (`01000000` in Plist) to disable the use of IOMapper in the native Wi-Fi driver
+    - In this case, you must disable VT-d in your BIOS; otherwise BCMC will ignore your request.
+
+> [!CAUTION]
+> If you request to disable the use of `IOMapper` in the native Wi-Fi driver, 
+> BCMC will allocate and map all necessary DMA buffers without using the mapper, except packet buffers that are handled by the kernel.
+> Currently, with VT-d disabled, it seems infeasible to map packet buffers properly for DMA without patching the kernel.
+> As a temporary workaround, BCMC allocates and maps a large bounce buffer for packets, 
+> copying payload to it for each outgoing packet and from it for each incoming packet.
+> As such, due to the extra copy operations, you will notice reduced network speed.
+> During early testing, it was observed that 500/250 Mbps with VT-d enabled dropped to 130/130 Mbps with VT-d disabled.
+> If you do not have a stable Ethernet connection and cannot tolerate such reduced network speed, 
+> you are strongly advised to enable VT-d and make AppleVTD work with your platform.
+
 ## Device Information
 
 This section describes device properties related to gathering the chip information that is necessary for the native driver. You might need to adjust these properties for your Wi-Fi chip.
