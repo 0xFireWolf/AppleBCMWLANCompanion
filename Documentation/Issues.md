@@ -18,6 +18,10 @@ Sharing the Internet to the Wi-Fi adapter *might* not be working properly.
 
 Putting your computer to sleep or waking it up might trigger a kernel panic.
 
+### OTA Update
+
+Upgrading to a new macOS Tahoe release with BCMC enabled causes a kernel panic during the final OTA stage, because Lilu mistakenly recognizes the final OTA stage as a normal boot. However, the root cause is deeper. As a temporary workaround, disable BCMC in your bootloader configuration file before performing an OTA update and re-enable it once the update has completed.
+
 ## \>\> Card Specific Issues
 
 This section describes issues specific to particular Wi-Fi cards.
