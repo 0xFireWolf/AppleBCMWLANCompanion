@@ -20,8 +20,12 @@ A discussion thread is available on [InsanelyMac](https://www.insanelymac.com/fo
 
 - macOS Tahoe
     - 26.0 (25A354)
+    - 26.0.1 (25A362)
+    - 26.1 (25B78)
 - macOS Sequoia
     - 15.7 (24G222)
+    - 15.7.1 (24G231)
+    - 15.7.2 (24G325)
 - macOS Sonoma
     - ~~14.8 (23J21)~~ (Not Verified Yet)
 
