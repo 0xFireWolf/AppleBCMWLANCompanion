@@ -8,6 +8,7 @@ This section describes device properties related to the Wi-Fi firmware. These pr
 
 ### `bcmc-firmware-path`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the **absolute** path the firmware file
 - **Required:** Yes
 - **Property Type:** `String` in Plist
@@ -15,6 +16,7 @@ This section describes device properties related to the Wi-Fi firmware. These pr
 
 ### `bcmc-firmware-hash`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the **SHA-256** checksum of the firmware file
 - **Required:** Yes
 - **Property Type:** `Data` in Plist (32 bytes)
@@ -26,6 +28,7 @@ This section describes device properties related to gathering the chip informati
 
 ### `bcmc-srom-slide`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the offset into SPROM area where the chip SROM is stored
 - **Required:** Yes if the chip is BCM4350
 - **Property Type:** `Data` in Plist (4 bytes)
@@ -41,6 +44,7 @@ This section describes device properties related to the country code used by the
 
 ### `bcmc-default-country-code`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the default two-letter country code that will be used by the Wi-Fi firmware
 - **Required:** No
 - **Property Type:** `String` in Plist
@@ -50,6 +54,7 @@ This section describes device properties related to the country code used by the
 
 ### `bcmc-enable-auto-country`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify whether the Wi-Fi firmware should set the country code automatically
 - **Required:** No
 - **Property Type:** `Data` in Plist (4 bytes)
@@ -65,6 +70,7 @@ This section describes device properties related to camouflaging your Wi-Fi chip
 
 ### `bcmc-fake-chip-number`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the chip number that will be injected to the chip manager
 - **Required:** No
 - **Property Type:** `Data` in Plist (4 bytes)
@@ -73,6 +79,7 @@ This section describes device properties related to camouflaging your Wi-Fi chip
 
 ### `bcmc-module-instance`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the module instance that will be injected to the chip manager
 - **Required:** No
 - **Property Type:** `String` in Plist
@@ -81,6 +88,7 @@ This section describes device properties related to camouflaging your Wi-Fi chip
 
 ### `bcmc-chip-otp`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the chip OTP data that will be injected to the chip manager
 - **Required:** No
 - **Property Type:** `Data` in Plist
@@ -89,6 +97,7 @@ This section describes device properties related to camouflaging your Wi-Fi chip
 
 ### `bcmc-user-otp`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the user OTP data that will be injected to the chip manager
 - **Required:** No
 - **Property Type:** `Data` in Plist
@@ -97,6 +106,7 @@ This section describes device properties related to camouflaging your Wi-Fi chip
 
 ### `bcmc-sku-override`
 
+- **Available Since:** 1.0.0
 - **Description:** Specify the SKU value that will be used to override the one reported by the chip SROM
 - **Required:** No
 - **Property Type:** `Data` in Plist (4 bytes)
