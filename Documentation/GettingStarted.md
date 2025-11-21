@@ -33,6 +33,13 @@ You are **strongly** advised to make a clean installation and keep the *System I
 
 Apple's Broadcom Wi-Fi driver relies on `AppleVTD` and `IOMapper`, so you need to enable `VT-d` in your BIOS settings. Depending on your machine configuration, you might need to patch the `DMAR` table ([Dortania's Guide](https://dortania.github.io/Getting-Started-With-ACPI/Universal/dmar-methods/manual.html#preparation)).
 
+> [!TIP]
+> Starting from **1.1.0**, BCMC provides a device property `bcmc-disable-io-mapper` that allows you to disable the use of `IOMapper` in the native Wi-Fi driver.
+> If `AppleVTD` is incompatible with your platform or with other 3rd-party drivers you are using, 
+> you can disable `VT-d` in your BIOS settings and add this device property (Type: Data, Value: `01000000`) to your bootloader configuration file.
+> Note that enabling this device property comes at the cost of increased memory footprint and degraded network speed.
+> Please refer to the ["IOMMU and AppleVTD"](https://github.com/0xFireWolf/AppleBCMWLANCompanion/blob/main/Documentation/DeviceProperties.md#iommu-and-applevtd) section in the manual for details.
+
 ## Download the Wi-Fi Firmware
 
 Broadcom FullMAC Wi-Fi cards rely on firmware to function properly. You can download the firmware that matches your Wi-Fi chip [here](../Firmwares). It is recommended to store the firmware in `/usr/local/share/firmware/wifi/`. If these directories do not exist, you can create them by running the following command in the Terminal:
