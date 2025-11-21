@@ -8,7 +8,7 @@ Apple Broadcom Wi-Fi Companion (BCMC) is a macOS kernel extension designed for s
 
 ## Current Status
 
-- **Last Updated:** Sep 20, 2025
+- **Last Updated:** Nov 21, 2025
 - **Driver Status:** Beta Testing - Not Recommended for Daily Use
 - **Limitations and Known Issues:** [Link](Documentation/Issues.md)
 
